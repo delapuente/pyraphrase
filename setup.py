@@ -2,34 +2,26 @@
 from distutils.core import setup
 
 setup(
-    name = 'pysub',
-    packages = ['pysub'],
-    version = '0.2',
-    description = 'Library to manipulate SubRip subtitles',
+    name = 'pyraphrase',
+    packages = ['pyraphrase'],
+    version = '0.1',
+    description = 'Linguistics-related library',
     author = 'Salvador de la Puente González',
     author_email = 'neo.salvador@gmail.com',
-    url = "http://unoyunodiez.wordpress.com/pysub/",
-    download_url = "https://github.com/lodr/pysub/zipball/master",
-    keywords = ['subtitle', 'video', 'srt', 'synchronization'],
+    url = "http://unoyunodiez.wordpress.com/pyraphrase/",
+    download_url = "https://github.com/lodr/pyraphrase/zipball/master",
+    keywords = ['linguistics', 'paraphrases', 'diff', 'ratcliff', 'obershelp'],
     classifiers = [
         "Development Status :: 4 - Beta",
         "Environment :: Other Environment",
         "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
         "License :: OSI Approved :: GNU General Public License (GPL)",
 	    "Operating System :: OS Independent",
         "Programming Language :: Python :: 2.7",
-        "Topic :: Multimedia :: Video",
-        "Topic :: Software Development :: Libraries :: Python Modules",
+	    "Topic :: Text Processing :: Linguistic",
     ],
     long_description = """\
-This module contains the class SubtitleStream to load SubRip subtitles format.
-See the class for extended documentation but basically you can load a SubRip
-(.srt) file shift it backward / forward, edit the text or check for sequence
-integrity.
-
-Instances of SubtitleStream act like sequences so they are iterable and you
-can get slices of it.
-
-You can save() the stream as well.
+pyraphrase is the result of an academic project to extract paraphrases from a subtitle corpus by using some statistical metrics. This library only contains one method get_paraphrases() but it is intended to be completed with more linguistics-related functionallity.
 """
 )
