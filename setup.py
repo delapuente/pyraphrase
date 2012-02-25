@@ -6,7 +6,7 @@ setup(
     packages = ['pyraphrase'],
     version = '0.1',
     description = 'Linguistics-related library',
-    author = 'Salvador de la Puente González',
+    author = 'Salvador de la Puente & Daniel Martín',
     author_email = 'neo.salvador@gmail.com',
     url = "http://unoyunodiez.wordpress.com/pyraphrase/",
     download_url = "https://github.com/lodr/pyraphrase/zipball/master",

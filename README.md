@@ -16,7 +16,7 @@ Otherwise, you can install from sources by typing:
 
 Documents for pyraphrase are not exhaustive but they can be found under **docs/html** directory.
 
-You can find more info in the [pysub project's homepage](http://unoyunodiez.wordpress.com/pyraphrase/).
+You can find more info in the [pyraphrase project's homepage](http://unoyunodiez.wordpress.com/proyectos/pyraphrase/).
 
 ## Version history
 
