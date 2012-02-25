@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyraphrase Package &mdash; pyraphrase 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="pyraphrase 0.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">pyraphrase 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="pyraphrase-package">
+<h1>pyraphrase Package<a class="headerlink" href="#pyraphrase-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">pyraphrase</span></tt> Package<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pyraphrase.__init__"></span></div>
+<div class="section" id="module-pyraphrase.pyraphrase">
+<span id="pyraphrase-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">pyraphrase</span></tt> Module<a class="headerlink" href="#module-pyraphrase.pyraphrase" title="Permalink to this headline">¶</a></h2>
+<p>This Python module can be used as a command line utility or as a library. As a
+command line utility, it accepts two sentences and prints a list of guessed
+periphrasis.</p>
+<p>As library, the get_periphrasis() method is available. See its documentation
+for further details.</p>
+<p>IMPLEMENTATION DETAILS:
+The algorithm is inspired by Callison-Burch thesis [1] where the main idea
+is to identify pairs of common words inside both sentences and to assume that
+the text between them should be the same but expressed in different ways.</p>
+<blockquote>
+<div><p>I.e.:
+Sentence 1: I am looking for the key
+Sentence 2: I am in the search of the key</p>
+<p>periphrasis: (looking for, in the search of)</p>
+</div></blockquote>
+<p>Another equivalent approach is to see the differences between the sentences.
+To do this, the Python difflib package is used. This module uses the
+difflib.Differ class to compare both sentences and determine their differences.</p>
+<blockquote>
+<div><p>I.e:
+Sentence 1: I am looking for the key
+Sentence 2: I am in the search of the key</p>
+<dl class="docutils">
+<dt>Difference:</dt>
+<dd>I
+am</dd>
+</dl>
+<ul class="simple">
+<li>looking</li>
+<li>for</li>
+</ul>
+<ul class="simple">
+<li>in</li>
+<li>the</li>
+<li>search</li>
+<li>of
+the
+key</li>
+</ul>
+</div></blockquote>
+<p>The output is a representation of what operations are needed to transform
+sentence 1 into sentence 2 (remove &#8216;looking for&#8217;; and add &#8216;in the search
+of&#8217;). Those lines starting by + and - characters are the differences that can be
+considered the periphrasis.</p>
+<p>Some notes about the implementation of the algorithm described in [2] are
+commented in the Python API documentation [3].</p>
+<p>[1] <a class="reference external" href="http://www.cs.jhu.edu/~ccb/publications/callison-burch-thesis.pdf">http://www.cs.jhu.edu/~ccb/publications/callison-burch-thesis.pdf</a></p>
+<p>[2] Paul E. Black, &#8220;Ratcliff/Obershelp pattern recognition&#8221;, in Dictionary
+of Algorithms and Data Structures [online], Paul E. Black, ed., U.S.
+National Institute of Standards and Technology. 17 December 2004.
+(accessed TODAY)
+Available from: <a class="reference external" href="http://www.nist.gov/dads/HTML/ratcliffObershelp.html">http://www.nist.gov/dads/HTML/ratcliffObershelp.html</a></p>
+<p>[3] <a class="reference external" href="http://docs.python.org/library/difflib.html#difflib.Differ">http://docs.python.org/library/difflib.html#difflib.Differ</a></p>
+<p>&#64;author Salvador de la Puente González</p>
+<dl class="function">
+<dt id="pyraphrase.pyraphrase.get_paraphrases">
+<tt class="descclassname">pyraphrase.pyraphrase.</tt><tt class="descname">get_paraphrases</tt><big>(</big><em>sentence_a</em>, <em>sentence_b</em><big>)</big><a class="reference internal" href="_modules/pyraphrase/pyraphrase.html#get_paraphrases"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyraphrase.pyraphrase.get_paraphrases" title="Permalink to this definition">¶</a></dt>
+<dd><p>get_paraphrases() returns a tuple with the list of pairs of periphrasis
+shared among the sentences, the longest common subsequence and some
+statistics (token sets and lcsr or longest commont subsequence ratio which
+is the percentage of the common part among the sentences.)</p>
+<p>See the module documentation for further details.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pyraphrase Package</a><ul>
+<li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">pyraphrase</span></tt> Package</a></li>
+<li><a class="reference internal" href="#module-pyraphrase.pyraphrase"><tt class="docutils literal"><span class="pre">pyraphrase</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/pyraphrase.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">pyraphrase 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Salvador de la Puente &amp; Daniel Martín.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>
