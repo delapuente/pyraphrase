@@ -16,7 +16,7 @@ Otherwise, you can install from sources by typing:
 
 Documents for pyraphrase are not exhaustive but they can be found under **docs/html** directory.
 
-You can find more info in the [pyraphrase project's homepage](http://unoyunodiez.wordpress.com/proyectos/pyraphrase/).
+You can find more info in the [pyraphrase project's homepage](http://unoyunodiez.com/proyectos/pyraphrase/).
 
 ## Version history
 
